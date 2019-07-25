@@ -34,22 +34,22 @@ def parseCommand(msg, commandList):
     return 'default'
 
 def isListening(user, msg, ircClient):
-    Commands.IsListening.run(user, msg, ircClient)
+    IrcCommands.IsListening.run(user, msg, ircClient)
 
 def isPlaying(user, msg, ircClient):
-    Commands.IsPlaying.run(user, msg, ircClient)
+    IrcCommands.IsPlaying.run(user, msg, ircClient)
 
 def with_(user, msg, ircClient):
-    Commands.With.run(user, msg, ircClient)
+    IrcCommands.With.run(user, msg, ircClient)
 
 def mods(user, msg, ircClient):
-    Commands.Mods.run(user, msg, ircClient)
+    IrcCommands.Mods.run(user, msg, ircClient)
 
 def discord(user, msg, ircClient):
-    Commands.Discord.run(user, msg, ircClient)
+    IrcCommands.Discord.run(user, msg, ircClient)
 
 def help_(user, msg, ircClient):
-    Commands.Help.run(user, msg, ircClient)
+    IrcCommands.Help.run(user, msg, ircClient)
 
 def default(user, msg, ircClient):
-    Commands.Default.run(user, msg, ircClient)
+    IrcCommands.Default.run(user, msg, ircClient)
