@@ -5,7 +5,7 @@ import Commands
 #     2. Create a function here to call the function in Commands
 #     3. Add the command trigger to CommandsList
 #     4. Add trigger:function to CommandSwitch
-def Handle(msg, ircClient):
+def Handle(user, msg, ircClient):
     CommandsList = [
         "is listening",
         "is playing",
@@ -25,7 +25,7 @@ def Handle(msg, ircClient):
     }
     actualCommand = parseCommand(msg, CommandsList)
     commandToRun = CommandSwitch.get(actualCommand)
-    commandToRun(msg, ircClient)
+    commandToRun(user, msg, ircClient)
 
 def parseCommand(msg, commandList):
     for command in commandList:
@@ -33,23 +33,23 @@ def parseCommand(msg, commandList):
             return command
     return 'default'
 
-def isListening(msg, ircClient):
-    Commands.IsListening.run(msg, ircClient)
+def isListening(user, msg, ircClient):
+    Commands.IsListening.run(user, msg, ircClient)
 
-def isPlaying(msg, ircClient):
-    Commands.IsPlaying.run(msg, ircClient)
+def isPlaying(user, msg, ircClient):
+    Commands.IsPlaying.run(user, msg, ircClient)
 
-def with_(msg, ircClient):
-    Commands.With.run(msg, ircClient)
+def with_(user, msg, ircClient):
+    Commands.With.run(user, msg, ircClient)
 
-def mods(msg, ircClient):
-    Commands.Mods.run(msg, ircClient)
+def mods(user, msg, ircClient):
+    Commands.Mods.run(user, msg, ircClient)
 
-def discord(msg, ircClient):
-    Commands.Discord.run(msg, ircClient)
+def discord(user, msg, ircClient):
+    Commands.Discord.run(user, msg, ircClient)
 
-def help_(msg, ircClient):
-    Commands.Help.run(msg, ircClient)
+def help_(user, msg, ircClient):
+    Commands.Help.run(user, msg, ircClient)
 
-def default(msg, ircClient):
-    Commands.Default.run(msg, ircClient)
+def default(user, msg, ircClient):
+    Commands.Default.run(user, msg, ircClient)

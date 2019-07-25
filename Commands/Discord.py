@@ -1,2 +1,3 @@
-def run(msg, ircClient):
-    print("From discord")
+def run(user, msg, ircClient):
+    ircClient.msg(user, 'The place to talk about the bot or just chat: https://discord.gg/hKXQdm2')
+    print(f'Printed discord invite for {user}.')
