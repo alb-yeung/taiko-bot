@@ -1,10 +1,13 @@
 import re
 import config
 import pp
+import apiReq
+from roundString import roundString as roundString
 
 def run(user, msg, ircClient):
 	conf = config.Config('bot.conf')
 	irc = ircClient
+	api = apiReq.API(conf)
     
 	diffnameRegex = re.compile(r'\[.*\[(.*)\]\]') # The regex finding the difficulty name, see 'diffname ='.
 	setidRegex = re.compile(r'/b/([0-9]*)')       # The regex finding the set id, see 'setid ='.

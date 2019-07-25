@@ -1,5 +1,6 @@
 import pp
 import config
+from roundString import roundString as roundString
 
 def run(user, msg, ircClient):
 	irc = ircClient

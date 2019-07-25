@@ -11,6 +11,7 @@ import irccon
 import pp
 import rateLimiting
 import CommandHandler
+from roundString import roundString as roundString
 
 QUIT = False
 
@@ -19,11 +20,6 @@ conf = config.Config('bot.conf')
 locale.setlocale(locale.LC_TIME, '')
 
 api = apiReq.API(conf)
-
-# Rounds a number and converts it back to a string.
-def roundString(s: str, digits: int):
-	n = round(float(s), digits)
-	return str(n)
 
 # IRC Setup
 
