@@ -68,7 +68,7 @@ def run(user, msg, ircClient):
 
 	hundreds = pp.getHundreds(maxCombo, misses, acc)
 
-	peppyPoints = roundString(pp.calcPP(stars, maxCombo, maxCombo - misses, hundreds, misses, acc, od, mods), 2)
+	peppyPoints = roundString.roundString(pp.calcPP(stars, maxCombo, maxCombo - misses, hundreds, misses, acc, od, mods), 2)
 
 	modString = pp.getModString(mods)
 

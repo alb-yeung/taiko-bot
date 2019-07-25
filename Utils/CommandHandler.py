@@ -1,8 +1,8 @@
 import IrcCommands
 
-#   When new command is created in Commands folder, do the following
-#     1. Add the import in Commands/__init__.py
-#     2. Create a function here to call the function in Commands
+#   When new command is created in IrcCommands folder, do the following
+#     1. Add the import in IrcCommands/__init__.py
+#     2. Create a function here to call the function in IrcCommands
 #     3. Add the command trigger to CommandsList
 #     4. Add trigger:function to CommandSwitch
 def Handle(user, msg, ircClient):

@@ -68,7 +68,7 @@ def run(user, msg, ircClient):
 	diffName = requestedBeatmap['version']
 	creator = requestedBeatmap['creator']
 	stars = float(requestedBeatmap['difficultyrating'])
-	starsRounded = roundString(stars, 2)
+	starsRounded = roundString.roundString(stars, 2)
 	maxCombo = int(requestedBeatmap['count_normal'])
 	od = pp.scaleHPOD(float(requestedBeatmap['diff_overall']), modsVal)
 	hp = pp.scaleHPOD(float(requestedBeatmap['diff_drain']), modsVal)
@@ -81,7 +81,7 @@ def run(user, msg, ircClient):
 		
 	# Calculate the pp for the accuracies in the tuple
 	for acc in (95.0, 96.0, 97.0, 98.0, 99.0, 100.0):
-		ppVal = roundString(pp.calcPP(stars, maxCombo, maxCombo, pp.getHundreds(maxCombo, 0, acc), 0, acc, od, modsVal), 2)
+		ppVal = roundString.roundString(pp.calcPP(stars, maxCombo, maxCombo, pp.getHundreds(maxCombo, 0, acc), 0, acc, od, modsVal), 2)
 		e = ' | ' # Separator
 		if acc == 95.0: # Avoid a trailing ' | '.
 			e = ''

@@ -1,9 +1,10 @@
-#needs ircName = conf.get('username')
-#needs api
-#needs conf
-#needs pp
-#needs roundString
-def run():
+from Utils import irccon
+from Utils import apiReq
+from Utils import config
+from Utils import pp
+from Utils import roundString
+
+def run(consoleInput, conf, api, ircName):
     lastPlay = api.getUserRecent(ircName)[0]
 
     fulls = int(lastPlay['count300'])

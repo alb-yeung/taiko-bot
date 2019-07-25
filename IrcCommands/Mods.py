@@ -28,7 +28,7 @@ def run(user, msg, ircClient):
 	diffName = lastBm['version']
 	creator = lastBm['creator']
 	stars = float(lastBm['difficultyrating'])
-	starsRounded = roundString(stars, 2)
+	starsRounded = roundString.roundString(stars, 2)
 	maxCombo = int(lastBm['count_normal'])
 	od = float(lastBm['diff_overall'])
 	hp = pp.scaleHPOD(float(lastBm['diff_drain']), mods)
@@ -44,7 +44,7 @@ def run(user, msg, ircClient):
 
 	# Calculate the pp for the accuracies in the tuple
 	for acc in (95.0, 96.0, 97.0, 98.0, 99.0, 100.0):
-		ppVal = roundString(pp.calcPP(stars, maxCombo, maxCombo, pp.getHundreds(maxCombo, 0, acc), 0, acc, od, mods), 2)
+		ppVal = roundString.roundString(pp.calcPP(stars, maxCombo, maxCombo, pp.getHundreds(maxCombo, 0, acc), 0, acc, od, mods), 2)
 		e = ' | ' # Separator
 		if acc == 95.0: # Avoid a trailing ' | '.
 			e = ''
