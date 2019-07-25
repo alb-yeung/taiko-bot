@@ -32,7 +32,7 @@ def run(user, msg, ircClient):
 	maxCombo = int(lastBm['count_normal'])
 	od = float(lastBm['diff_overall'])
 	hp = pp.scaleHPOD(float(lastBm['diff_drain']), mods)
-	bpm = lastBm['bpm'] # Not converted to int because we only use it for printing
+	bpm = pp.scaleBPM(lastBm['bpm'], mods)
 	
 	hundreds = pp.getHundreds(maxCombo, misses, acc)
 	

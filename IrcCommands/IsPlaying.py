@@ -72,7 +72,7 @@ def run(user, msg, ircClient):
 	maxCombo = int(requestedBeatmap['count_normal'])
 	od = pp.scaleHPOD(float(requestedBeatmap['diff_overall']), modsVal)
 	hp = pp.scaleHPOD(float(requestedBeatmap['diff_drain']), modsVal)
-	bpm = requestedBeatmap['bpm'] # Not converted to int because we only use it for printing
+	bpm = pp.scaleBPM(requestedBeatmap['bpm'], modsVal) # Not converted to int because we only use it for printing
 		
 	# The first line shown to the user containing general info about the difficulty.
 	irc.msg(user, f'{artist} - {title} [{diffName}] by {creator}, {starsRounded}* {mods} OD{od} HP{hp} BPM: {bpm} FC: {maxCombo}')
