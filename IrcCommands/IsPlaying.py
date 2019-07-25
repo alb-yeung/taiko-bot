@@ -1,9 +1,11 @@
 import re
-import config
-import pp
-import apiReq
-from roundString import roundString as roundString
+from Utils import config
+from Utils import pp
+from Utils import apiReq
+from Utils import roundString as roundString
 
+#Called when pm'd with
+#	/np during a map
 def run(user, msg, ircClient):
 	conf = config.Config('bot.conf')
 	irc = ircClient

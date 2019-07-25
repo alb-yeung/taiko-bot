@@ -5,13 +5,13 @@ import re
 import sys
 import threading
 
-import apiReq
-import config
-import irccon
-import pp
-import rateLimiting
-import CommandHandler
-from roundString import roundString as roundString
+from Utils import apiReq
+from Utils import config
+from Utils import irccon
+from Utils import pp
+from Utils import rateLimiting
+from Utils import CommandHandler
+from Utils import roundString
 
 QUIT = False
 
@@ -103,10 +103,9 @@ class ConsoleThread(threading.Thread):
 				maxcombo = int(beatmap['count_normal'])
 
 				acc = (hundreds * 0.5 + fulls) / maxcombo * 100
-				accStr = roundString(acc, 2)
+				accStr = roundString.roundString(acc, 2)
 
-				peppyPoints = roundString(pp.calcPP(stars, maxcombo, maxcombo - misses, hundreds,
-					misses, acc, od, mods), 2)
+				peppyPoints = roundString.roundString(pp.calcPP(stars, maxcombo, maxcombo - misses, hundreds, misses, acc, od, mods), 2)
 				
 				modStr = pp.getModString(mods)
 
@@ -150,8 +149,7 @@ class ConsoleThread(threading.Thread):
 				od = int(beatmap['diff_overall'])
 				maxcombo = int(beatmap['count_normal'])
 
-				peppyPoints = roundString(pp.calcPP(stars, maxcombo, maxcombo - bm_misses, pp.getHundreds(maxcombo, bm_misses, bm_acc),
-					bm_misses, bm_acc, od, pp.mods['noMod']), 2)
+				peppyPoints = roundString.roundString(pp.calcPP(stars, maxcombo, maxcombo - bm_misses, pp.getHundreds(maxcombo, bm_misses, bm_acc), bm_misses, bm_acc, od, pp.mods['noMod']), 2)
 
 				print(f'<3 {artist} - {title} [{diffName}] | {bm_acc}%, {bm_misses} misses, FC: {maxcombo}')
 				print(f'<3 {peppyPoints}pp')
@@ -182,7 +180,7 @@ class ConsoleThread(threading.Thread):
 				
 				hundreds = pp.getHundreds(maxCombo, misses, acc)
 
-				peppyPoints = roundString(pp.calcPP(stars, maxCombo, maxCombo - misses, hundreds, misses, acc, od, mods), 2)
+				peppyPoints = roundString.roundString(pp.calcPP(stars, maxCombo, maxCombo - misses, hundreds, misses, acc, od, mods), 2)
 
 				modString = pp.getModString(mods)
 

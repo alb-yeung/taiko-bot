@@ -1,4 +1,4 @@
-import Commands
+import IrcCommands
 
 #   When new command is created in Commands folder, do the following
 #     1. Add the import in Commands/__init__.py

@@ -1,7 +1,9 @@
-import pp
-import config
-from roundString import roundString as roundString
+from Utils import pp
+from Utils import config
+from Utils import roundString as roundString
 
+#Called when pm'd with
+#	!mods <mods..>
 def run(user, msg, ircClient):
 	irc = ircClient
 	conf = config.Config('bot.conf')
