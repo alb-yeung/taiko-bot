@@ -6,19 +6,14 @@ import ConsoleCommands
 #     3. Add the command trigger to CommandsList
 #     4. Add trigger:function to CommandSwitch
 def Handle(msg, conf, api, ircName):
-	CommandsList = [
-		"beatmap", "bm",
-		"lastplay", "lp",
-		"with", "w"
-	]
 	CommandSwitch = {
 		"beatmap" : beatmap, "bm" : beatmap,
 		"lastplay" : lastplay, "lp" : lastplay,
 		"with" : with_, "w" : with_,
 		"default" : default
 	}
-	actualCommand = parseCommand(msg, CommandsList)
-	commandToRun = CommandSwitch.get(actualCommand)
+	actualCommand = parseCommand(msg, CommandSwitch.keys())
+	commandToRun = CommandSwitch[actualCommand]
 	commandToRun(msg, conf, api, ircName)
 
 def parseCommand(msg, commandList):
