@@ -52,18 +52,10 @@ def msgHook(ircClient: irccon.IRC, line):
 		print(f'Rate limited user {user}.')
 		return
 
-	CommandHandler.Handle(user, msg, ircClient, conf, api)
+	CommandHandler.handle(user, msg, ircClient, conf, api)
 
 
 class ConsoleThread(threading.Thread):
-	currStr = ''
-
-	currMode = 'menu'
-
-	bm_id = None
-	bm_acc = None
-	bm_misses = None
-
 	def run(self):
 		print('<3 Welcome to Sarah\'s bot console! :D Here\'s a list of commands you can use:')
 		print('<3  beatmap | bm: Test the beatmap feature!')
@@ -75,10 +67,6 @@ class ConsoleThread(threading.Thread):
 
 		while True:
 			consoleInput = input('').strip()
-
-			bm_id = None
-			bm_acc = None
-			bm_misses = None
 
 			if consoleInput == 'quit' or consoleInput == 'q':
 				irc.queueEvent(irccon.IRCQuitEvent())
