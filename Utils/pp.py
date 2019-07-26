@@ -65,13 +65,13 @@ def scaleHPOD(hpod: float, enabledMods):
 # Scales the bpm for HT/DT.
 def scaleBPM(bpm, enabledMods):
 	bpm = int(bpm)
-
+	
 	if enabledMods & mods['HalfTime']:
 		return bpm * 0.75
-
+	
 	if enabledMods & mods['DoubleTime']:
 		return bpm * 1.5
-
+	
 	return bpm
 
 # Calculate the hit window for a perfect hit (300) in ms depending on the enabled mods using the OD (Overall Difficulty).
