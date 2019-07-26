@@ -1,14 +1,11 @@
 import re
 from Utils import config
 from Utils import pp
-from Utils import roundString as roundString
+from Utils import roundString
 
 #Called when pm'd with
 #	!with <acc> <misses>
-def run(user, msg, ircClient):
-	irc = ircClient
-	conf = config.Config('bot.conf')
-    
+def run(user, msg, irc, conf, api):
 	try:
 		userBeatmap = conf.load(user)
 	except KeyError:

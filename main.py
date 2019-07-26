@@ -52,7 +52,7 @@ def msgHook(ircClient: irccon.IRC, line):
 		print(f'Rate limited user {user}.')
 		return
 
-	CommandHandler.Handle(user, msg, ircClient)
+	CommandHandler.Handle(user, msg, ircClient, conf, api)
 
 
 class ConsoleThread(threading.Thread):
@@ -84,7 +84,7 @@ class ConsoleThread(threading.Thread):
 				irc.queueEvent(irccon.IRCQuitEvent())
 				return
 			
-			ConsoleCommandHandler.Handle(consoleInput, conf, api, ircName)
+			ConsoleCommandHandler.handle(consoleInput, conf, api, ircName)
 
 # Add the hook on a PRIVMSG to the client.
 irc.addEventHook('PRIVMSG', msgHook)

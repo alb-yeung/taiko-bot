@@ -2,15 +2,11 @@ import re
 from Utils import config
 from Utils import pp
 from Utils import apiReq
-from Utils import roundString as roundString
+from Utils import roundString
 
 #Called when pm'd with
 #	/np during a map
-def run(user, msg, ircClient):
-	conf = config.Config('bot.conf')
-	irc = ircClient
-	api = apiReq.API(conf)
-    
+def run(user, msg, irc, conf, api):    
 	diffnameRegex = re.compile(r'\[.*\[(.*)\]\]') # The regex finding the difficulty name, see 'diffname ='.
 	setidRegex = re.compile(r'/b/([0-9]*)')       # The regex finding the set id, see 'setid ='.
 

@@ -5,8 +5,8 @@ import IrcCommands
 #     2. Create a function here to call the function in IrcCommands
 #     3. Add the command trigger to CommandsList
 #     4. Add trigger:function to CommandSwitch
-def Handle(user, msg, ircClient):
-    CommandsList = [
+def handle(user, msg, ircClient, conf, api):
+    commandsList = [
         "is listening",
         "is playing",
         "!with",
@@ -14,7 +14,7 @@ def Handle(user, msg, ircClient):
         "!discord",
         "!help"
     ]
-    CommandSwitch = {
+    commandSwitch = {
         "is listening" : isListening,
         "is playing" : isPlaying,
         "!with" : with_,
@@ -24,32 +24,31 @@ def Handle(user, msg, ircClient):
         "default" : default
     }
     actualCommand = parseCommand(msg, CommandsList)
-    commandToRun = CommandSwitch.get(actualCommand)
-    commandToRun(user, msg, ircClient)
+    commandToRun = commandSwitch[actualCommand]
+    commandToRun(user, msg, ircClient, conf, api)
 
 def parseCommand(msg, commandList):
-    for command in commandList:
-        if (msg.find(command) != -1):
-            return command
+    if command in msg:
+        return command
     return 'default'
 
-def isListening(user, msg, ircClient):
-    IrcCommands.IsListening.run(user, msg, ircClient)
+def isListening(user, msg, ircClient, conf, api):
+    IrcCommands.IsListening.run(user, msg, ircClient, conf, api)
 
-def isPlaying(user, msg, ircClient):
-    IrcCommands.IsPlaying.run(user, msg, ircClient)
+def isPlaying(user, msg, ircClient, conf, api):
+    IrcCommands.IsPlaying.run(user, msg, ircClient, conf, api)
 
-def with_(user, msg, ircClient):
-    IrcCommands.With.run(user, msg, ircClient)
+def with_(user, msg, ircClient, conf, api):
+    IrcCommands.With.run(user, msg, ircClient, conf, api)
 
-def mods(user, msg, ircClient):
-    IrcCommands.Mods.run(user, msg, ircClient)
+def mods(user, msg, ircClient, conf, api):
+    IrcCommands.Mods.run(user, msg, ircClient, conf, api)
 
-def discord(user, msg, ircClient):
-    IrcCommands.Discord.run(user, msg, ircClient)
+def discord(user, msg, ircClient, conf, api):
+    IrcCommands.Discord.run(user, msg, ircClient, conf, api)
 
-def help_(user, msg, ircClient):
-    IrcCommands.Help.run(user, msg, ircClient)
+def help_(user, msg, ircClient, conf, api):
+    IrcCommands.Help.run(user, msg, ircClient, conf, api)
 
-def default(user, msg, ircClient):
-    IrcCommands.Default.run(user, msg, ircClient)
+def default(user, msg, ircClient, conf, api):
+    IrcCommands.Default.run(user, msg, ircClient, conf, api)
